@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		width: 85%;
+		margin: 0 auto;
+	}
+	
+	a{
+		text-decoration: none;
+		color: black;
+	}
+	
+	#header{
+		position:relative;
+		padding:20px 0px 50px 0px;
+		margin: 0 auto;
+	}
+
+	#search_btn {
+		background: url("../ascloimage/icon_search.png") no-repeat;
+		background-size:cover;
+		cursor: pointer;
+		border: none;
+		width: 20px;
+		height: 18px;
+	}
+	div{
+		display:block;
+	}
+	#langage{
+		position:absolute;
+		top:0px;
+		left:0px;
+	}
+	#search{
+		position:absolute;
+		top:0px;
+		right:0px;
+	}
+	#mainname{
+		text-align:center;
+		width:100%;
+		margin:0 auto;
+	}
+	
+	#bottomright{
+		position:absolute;
+		right:0;
+		bottom:5px;
+	}
+	.bottom table tr td {
+    	font-size: .8em;
+    	margin: 0;
+    	padding: 0px 5px 0px;
+	}
+	#bottomleft{
+		position:absolute;
+		left:0;
+		bottom:5px;
+	}
+	
+	.bottom table tr td:hover, .bottom table tr td:focus{
+		opacity: 0.5;
+	}
+	.lnb {
+        overflow:hidden;
+        width:100%; height:40px;
+        border-top:1px solid #cccccc;
+        border-bottom:1px solid #cccccc;
+        padding:5px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .lnb ul {
+        margin: 0 auto;
+    }
+
+    .lnb li {
+        margin:5px;
+        line-height:25px;
+        display:inline-block;
+        list-style:none;
+        font-size:.8em;
+    }
+
+    .lnb a {
+        color:#282828;
+        font-size:1.1em;
+        padding:10px 15px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #road{
+    	text-align:right;
+    	font-size:.8em;
+    	color:#ccc;
+    }
+    
+    #topname{
+    	text-align: center;
+    }
+    
+    #topname p b{
+    	border-bottom: 3px solid #ccc;
+    }
+    
+    #topnamesub{
+    	text-align: center;
+    	font-size: .75em;
+    	color:#ccc;
+    }
+    
+    form{
+    	margin: 20px 0px 150px;
+    }
+    
+    fieldset{
+    	width: 450px;
+    	margin: 0 auto;
+    	border: 1px solid #ccc;
+    }
+    
+    fieldset table{
+    	width: 85%;
+		
+    }
+    
+    fieldset table tr td{
+    	text-align: left;
+    	font-size: .75em;
+    }
+    
+    #findbtn{
+    	width: 100%;
+    	color: white;
+    	background: #000000;
+    	border: none;
+    	padding: 10px;
+    }
+    
+    #guest, #GHfind1, #findNum{
+    	display: static;
+    }
+    
+    .formal, #Numcheck{
+    	box-sizing: border-box;
+	    padding: 2px 8px;
+	    border: 1px solid #ccc;
+	    border-radius: 0;
+	    font-size: 11px;
+	    line-height: 18px;
+	    font-weight: normal;
+	    text-decoration: none;
+	    vertical-align: middle;
+	    word-spacing: -0.5px;
+	    letter-spacing: 0;
+	    text-align: center;
+	    white-space: nowrap;
+	    background-color: #fff;
+	    transition: all 0.15s ease;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #foot .footdiv > ul > li{
+    	float: left;
+    	list-style:none; 
+    	font-size:.9em;
+    }
+    
+    .aside > div.m{
+    	float: left;
+    	padding:0px 0px 0px 30px;
+    }
+    
+    #foot{
+    	background: #F2F3F4;
+    	height: 400px;
+    	padding: 50px 0 0 0;
+    }
+
+</style>
+<script type = "text/javascript" src = "./js/jquery-3.4.1.min.js"></script>
+<script type = "text/javascript">
+function start() {
+	$("#host").css("display","none");
+	$("#Gemail").prop("checked", "true");
+	$("#findphoNum").css("display", "none");
+}
+
+$(function(){
+	$("input[name = 'findway']").change(function(){
+		$("input[type = 'text']").val("");
+		if($("#Gemail").is(":checked")){
+			$("#findemail").css("display", "");
+			$("#findphoNum").css("display", "none");
+		} else if($("#GphoNum").is(":checked")){
+			$("#findemail").css("display", "none");
+			$("#findphoNum").css("display", "");
+		} else if($("#Hemail").is(":checked")){
+			$("#findemail").css("display", "");
+			$("#findphoNum").css("display", "none");
+		} else if($("#HphoNum").is(":checked")){
+			$("#findemail").css("display", "none");
+			$("#findphoNum").css("display", "");
+		}
+	})
+});
+function changes(){
+	$(function() {
+		if($("select[name = 'typesel'] > option:selected").index() == 0){
+			$("#guest").css("display","");
+			$("#company").css("display","none");
+			$("#host").css("display","none");
+			$("#Gemail").prop("checked", "true");
+			$("#findemail").css("display", "");
+			$("#findphoNum").css("display", "none");
+			return false;
+		}
+		if($("select[name = 'typesel'] > option:selected").index() == 1){
+			$("#guest").css("display","none");
+			$("#host").css("display","");
+			$("#Hemail").prop("checked", "true");
+			$("#findemail").css("display", "");
+			$("#findphoNum").css("display", "none");
+			return false;
+		}
+	});
+}
+</script>
+</head>
+<body onload = "start();">
+	<header id = "header">
+		<div id = "langage">
+			<a href = "main.html"><img src = "../images/12장/kr.png" width = "18px" height = "13px" style = "border: 1px solid #000;"></a>
+			<a href = "ch_main.html"><img src = "../images/12장/ch.png"></a>
+			<a href = "jp_main.html"><img src = "../images/12장/jp.png"></a>
+			<a href = "us_main.html"><img src = "../images/12장/us.png"></a>
+		</div>
+		<div id = "search">
+			<input type = "text" id = "search_box" class = "searchall">
+			<a href = "search.html"><button id = "search_btn" class = "searchall"></button></a>
+		</div>
+		
+		<div id = "mainname">
+			<h2><a href = "main.html">suncloth</a></h2>
+		</div>
+		
+		<div id = "bottomleft" class = "bottom">
+			<table>
+				<tr>
+					<td><a href = "login.html">login</a></td>
+					<td><a href = "join_us.html">join us</a></td>
+					<td><a href = "cart.html">cart</a></td>
+					<td><a href = "order.html">order</a></td>
+					<td><a href = "mypage.html">mypage</a></td>
+				</tr>
+			</table>
+		</div>
+		<div id = "bottomright" class = "bottom">
+			<table>
+				<tr>
+					<td><a href = "notice.html">notice</a></td>
+					<td><a href = "FAQ.html">FAQ</a></td>
+					<td><a href = "QnA.html">Q&A</a></td>
+					<td><a href = "review.html">REVIEW</a></td>
+					<td><a href = "membership.html">membership</a></td>
+					<td><a href = "bookmark.html">bookmark</a></td>
+					<td><a href = "https://www.doortodoor.co.kr/parcel/pa_004.jsp">delivery</a></td>
+					<td><a href = "https://www.facebook.com/profile.php?id=100008360707255.html"><img src="../ascloimage/facebook-logo.png" width = "10px" height = "10px"></a></td>
+					<td><a href = "https://www.instagram.com/seonu1109/?hl=ko"><img src="../ascloimage/instagram.png" width = "10px" height = "10px"></a></td>
+				</tr>
+			</table>
+		</div>
+	</header>
+	
+	<div class="lnb">
+        <ul>
+            <li><a href="only_asclo.html" alt="">only asclo</a></li>
+            <li><a href="best.html" alt="">best</a></li>
+            <li><a href="outer.html" alt="">outer</a></li>
+            <li><a href="suit.html" alt="">suit</a></li>
+            <li><a href="top.html" alt="">top</a></li>
+            <li><a href="shirt.html" alt="">shirt</a></li>
+            <li><a href="knit.html" alt="">knit</a></li>
+            <li><a href="bottom.html" alt="">bottom</a></li>
+            <li><a href="shoes.html" alt="">shoes</a></li>
+            <li><a href="acc.html" alt="">acc</a></li>
+            <li><a href="perfect_line.html" alt="">perfect line</a></li>
+            <li><a href="5cm.html" alt="">+5cm</a></li>
+            <li><a href="asclo_fit.html" alt="">asclo fit</a></li>
+        </ul>
+     </div>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     <div id = "road">
+		<p>home > membership</p>
+	</div>
+	
+	<div id = "topname">
+		<p><b>FIND ID</b></p>
+	</div>
+	
+	<div id = "topnamesub">
+		<p>가입하신 방법에 따라 아이디 찾기가 가능합니다.</p>
+	</div>
+	
+    <form name = "findId" action="" method = "post">
+    	<fieldset name = "typetbl">
+    		<table id = "membertype" style = "margin: 40px auto 15px;">
+    			<col style = "width: 35%;">
+    			<col style = "width: 65%;">
+    			<tr>
+    				<td>회원유형</td>
+    				<td>
+    					<select id = "type" name = "typesel" onchange = "changes();" style = "width:100%; padding: 7px 0px; font-size: .9em;">
+    						<option value = "guest">개인 회원</option>
+    						<option value = "host">관리자</option>
+    					</select>
+    				</td>
+    			</tr>
+    			<tr id = "guest">
+    				<td>       </td>
+    				<td>
+    					<input type = "radio" name = "findway" id = "Gemail" class = "email" value = "email">
+    					<label for = "Gemail">이메일</label>
+    					<input type = "radio" name = "findway" id = "GphoNum" class = "phoN" value = "phoNum">
+    					<label for = "GphoNum">휴대폰번호</label>
+    				</td>
+    			</tr>
+    			
+    			<tr id = "host">
+    				<td>       </td>
+    				<td>
+    					<input type = "radio" name = "findway" id = "Hemail" value = "email">
+    					<label for = "Hemail">이메일</label>
+    					<input type = "radio" name = "findway" id = "HphoNum" value = "phoNum">
+    					<label for = "HphoNum">휴대폰번호</label>
+    				</td>
+    			</tr>
+    		</table>
+    			
+    			
+    		<table id = "summary" style = "margin: 0px auto 25px;">
+	    		<col style = "width: 35%;">
+	    		<col style = "width: 65%;">
+    			<tr id = "GHfind1">
+    				<td>이름</td>
+    				<td>
+    					<input type = "text" id = "Gname" name = "GNameN" style = "width:98.3%; padding: 5px 0px;">
+    				</td>
+    			</tr>
+    			
+    			<tr id = "findemail">
+		    		<td>이메일로 찾기</td>
+		    		<td>
+		   				<input type = "text" id = "idname" name = "idName" style = "width: 35%; padding:5px 0px;">
+		   				@ <input type = "text" id = "urlcode"  name = "urlcode" style = "width: 35%; padding:5px 0px;">
+		   				<input type = "button" id = "Eformal" class = "formal" value = "인증">
+		    		</td>
+		    	</tr>
+    			
+    			<tr id = "findphoNum">
+    				<td>휴대폰 번호로 찾기</td>
+    				<td>
+    					<input type = "text" id = "findCphoNum1" name = "findCphoNum1N" style = "width:19%; padding: 5px 0px;">
+    					-   <input type = "text" id = "findCphoNum2" name = "findCphoNum2N" style = "width:23%; padding: 5px 0px;">
+    					-   <input type = "text" id = "findCphoNum3" name = "findCphoNum3N" style = "width:23%; padding: 5px 0px;">
+    					<input type = "button" id = "Pformal" class = "formal" value = "인증">
+    				</td>
+    			</tr>
+		    	
+		    	<tr>
+		    		<td>
+		    		인증번호 입력
+		    		</td>
+		    		<td>
+		    		<input type = "text" id = "formalNum" name = "formalNum" maxlength = "6" style = "width: 80%; padding:5px 0px;">
+		    		<input type = "button" id = "Numcheck" value = "확인">
+		    		</td>
+		    	</tr>
+    		</table>
+    		
+    		
+    		<table id = "btn" style = "margin: 0px auto 40px;">	
+    			<tr>
+    				<td><input type = "submit" id = "findbtn" value = "확인" name = "findbtnN"></td>
+    			</tr>
+    		</table>
+    	
+    	</fieldset>
+    </form>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     <footer id = "foot">
+		<div class = "footdiv">
+			<ul>
+				<li>
+					<div class = "aboutus">
+						<ul>
+							<li>ABOUT US</li><br>
+							<li>company.애즈클로</li>
+							<li>tel.032-1234-5678 email.k-sunwo@naver.com</li>
+							<li>business no.204-29-34817</li>
+							<li>mail order license.2019-서울동대문-0071호[사업자정보확인]</li>
+							<li>address.[02586] 서울특별시 성동구 청계천로 468 3층</li>
+							<br>
+							<li><b>[교환/반품 주소지]</b></li>
+							<li>서울특별시 동대문구 난계로30길 23 (신설동) 7층</li>
+							<li>CJ대한통운 택배고객센터 : 1588-1255</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class = "cscenter">
+						<ul>
+							<li>C/S CENTER</li><br>
+							<li>070-1234-5678</li>
+							<li>MON - FRI : 10AM-4:30PM</li>
+							<li>LUNCH : 12:30AM-1:30PM</li>
+							<li>SAT SUN HOLIDAT OFF</li>
+							<br>
+							<li><b>[무통장 계좌 안내]</b></li>
+							<li>KB국민 123456-01-123456</li>
+							<li>예금주 : 김선우(선클로)</li>
+							<br>
+							<li><b>[반품 계좌 안내]</b></li>
+							<li>KB국민 123456-01-123456</li>
+							<li>예금주 : 김선우(선클로)</li>
+						</ul>
+					</div>
+				</li>
+		
+				<li>
+					<div class = "aside">
+						<div class = "m">
+							<ul>
+								<li>COMMUNITY</li>
+								<BR>
+								<li>NOTICE</li>
+								<li>FAQ</li>
+								<li>Q&A</li>
+								<li>REVIEW</li>
+								<li>MEMBERSHIP</li>
+							</ul>
+						</div>
+						<div class = "m">
+							<ul>
+								<li>MEMBERSHIP</li>
+								<BR>
+								<li>회원가입</li>
+								<li>아이디 찾기</li>
+								<li>비밀번호 찾기</li>
+								<li>주문조회 바로가기</li>
+								<li>최근 본 상품</li>
+							</ul>
+						</div>
+						<div class = "m">
+							<ul>
+								<li>SHOP GUIDE</li>
+								<BR>
+								<li>홈으로</li>
+								<li>회사소개</li>
+								<li>이용약관안내</li>
+								<li>개인정보취급방침</li>
+								<li>이용안내</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

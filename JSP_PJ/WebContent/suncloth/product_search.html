@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		width: 85%;
+		margin: 0 auto;
+	}
+	
+	li{
+        list-style:none;
+        list-style-position:inside;
+	}
+	
+	#header{
+		position:relative;
+		padding:20px 0px 50px 0px;
+		margin: 0 auto;
+	}
+
+	#search_btn {
+		background: url("../ascloimage/icon_search.png") no-repeat;
+		background-size:cover;
+		cursor: pointer;
+		border: none;
+		width: 20px;
+		height: 18px;
+	}
+	div{
+		display:block;
+	}
+	#langage{
+		position:absolute;
+		top:0px;
+		left:0px;
+	}
+	#search{
+		position:absolute;
+		top:0px;
+		right:0px;
+	}
+	#mainname{
+		text-align:center;
+		width:100%;
+		margin:0 auto;
+	}
+	
+	#bottomright{
+		position:absolute;
+		right:0;
+		bottom:5px;
+	}
+	.bottom table tr td {
+    	font-size: .8em;
+    	margin: 0;
+    	padding: 0px 5px 0px;
+	}
+	#bottomleft{
+		position:absolute;
+		left:0;
+		bottom:5px;
+	}
+	
+	.bottom table tr td:hover, .bottom table tr td:focus{
+		opacity: 0.5;
+	}
+	.lnb {
+        overflow:hidden;
+        width:100%; height:40px;
+        border-top:1px solid #cccccc;
+        border-bottom:1px solid #cccccc;
+        padding:5px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .lnb ul {
+        margin: 0 auto;
+    }
+
+    .lnb li {
+        margin:5px;
+        line-height:25px;
+        display:inline-block;
+        font-size:.8em;
+    }
+
+    .lnb a {
+        color:#282828;
+        font-size:1.1em;
+        padding:10px 15px;
+        text-decoration:none;
+    }
+    
+    
+    
+    #road{
+    	text-align:right;
+    	font-size:.8em;
+    	color:#ccc;
+    }
+    
+    #topname{
+    	text-align: center;
+    }
+    
+    #topname p b{
+    	border-bottom: 3px solid #ccc;
+    }
+    
+    #searchpart{
+    	width:40%;
+    	margin:0 auto;
+    }
+    
+    #searchpart table{
+    	width:100%;
+    	border:1px solid;
+    	text-align:center;
+    }
+    
+    #searchpart table tr td{
+    	padding:0px;
+    	border:none;
+    }
+    
+    #notfindprd{
+    	text-align: center;
+    	font-size:.8em;
+    	margin: 40px 0px 300px;
+    }
+    
+    #prdlisttop{
+    	position: relative;
+    	height: 50px;
+    	margin: 10px;
+    }
+    
+    #listtotal{
+    	position: absolute;
+    	left:0;
+    	bottom:0;
+    	font-size: .7em;
+    	color: #ccc;
+    }
+    
+    #sortway{
+    	position: absolute;
+    	right: 0;
+    	bottom: 0;
+    	font-size: .7em;
+    }
+    
+    #sortway input{
+    	width:65px;
+    	background: #fff;
+    	border: 1px solid #ccc;
+    }
+    
+    .items, .listnum{
+    	margin-bottom:100px;
+    	display:none;
+    }
+    
+    .items table tr td{
+    	text-align:center;
+    	font-size: .7em;
+    	padding-right: 0px;
+    	vertical-align:top;
+    	line-height:20px;
+    }
+    
+    .items table tr td a{
+    	text-decoration: none;
+    	color: #000;
+    }
+    
+    .items table tr td img{
+    	margin-bottom: 7px;
+    }
+    
+    .listnum{
+    	text-align:center;
+    	margin: 150px 0px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    div {
+    	display: block;
+    }
+    
+    #foot .footdiv > ul > li{
+    	float: left;
+    	list-style:none; 
+    	font-size:.9em;
+    }
+    
+    .aside > div.m{
+    	float: left;
+    	padding:0px 0px 0px 30px;
+    }
+    
+    #foot{
+    	background: #F2F3F4;
+    	height: 400px;
+    	padding: 50px 0 0 0;
+    	position: static;
+    }
+</style>
+</head>
+<body>
+	<header id = "header">
+		<div id = "langage">
+			<img src = "../images/12장/ch.png">
+			<img src = "../images/12장/jp.png">
+			<img src = "../images/12장/us.png">
+		</div>
+		<div id = "search">
+			<input type = "text" id = "search_box" class = "searchall">
+			<button id = "search_btn" class = "searchall"></button>
+		</div>
+		
+		<div id = "mainname">
+			<h2>suncloth</h2>
+		</div>
+		
+		<div id = "bottomleft" class = "bottom">
+			<table>
+				<tr>
+					<td>login</td>
+					<td>join us</td>
+					<td>cart</td>
+					<td>order</td>
+					<td>mypage</td>
+				</tr>
+			</table>
+		</div>
+		<div id = "bottomright" class = "bottom">
+			<table>
+				<tr>
+					<td>notice</td>
+					<td>FAQ</td>
+					<td>Q&A</td>
+					<td>REVIEW</td>
+					<td>membership</td>
+					<td>bookmark</td>
+					<td>delivery</td>
+					<td><img src="../ascloimage/facebook-logo.png" width = "10px" height = "10px"></td>
+					<td><img src="../ascloimage/instagram.png" width = "10px" height = "10px"></td>
+				</tr>
+			</table>
+		</div>
+	</header>
+	
+	<div class="lnb">
+        <ul>
+            <li><a href="#" alt="">only asclo</a></li>
+            <li><a href="#" alt="">best</a></li>
+            <li><a href="#" alt="">outer</a></li>
+            <li><a href="#" alt="">suit</a></li>
+            <li><a href="#" alt="">top</a></li>
+            <li><a href="#" alt="">shirt</a></li>
+            <li><a href="#" alt="">knit</a></li>
+            <li><a href="#" alt="">bottom</a></li>
+            <li><a href="#" alt="">shoes</a></li>
+            <li><a href="#" alt="">acc</a></li>
+            <li><a href="#" alt="">perfect line</a></li>
+            <li><a href="#" alt="">+5cm</a></li>
+            <li><a href="#" alt="">asclo fit</a></li>
+        </ul>
+     </div>
+
+
+
+
+
+
+
+
+
+	
+	<div id = "road">
+		<p>home > search</p>
+	</div>
+	
+	<div id = "topname">
+		<p><b>제품 검색</b></p>
+	</div>
+	
+	<div id = "searchpart">
+		<table>
+			<col style = "width:25%;">
+			<col style = "width:60%;">
+			<col style = "width:15%;">
+			<tr>
+				<td><select id= "searchtype" name = "type" style = "width: 100%; height: 30px; border:none;">
+					<option value = "prdname">상품명</option>
+				</select>
+				</td>
+				<td><input type = "text" id = "searchtext" style = "width: 100%; height: 40px; border:none;"></td>
+				<td><img src = "../ascloimage/search.png" width = "25px" height = "25px" style = "vertical-align:middle;"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id = "prdlisttop" style = "width:100%; margin:0px;">
+		<p id = "listtotal">총 <span style = "color:#000">0</span>개의 상품이 검색되었습니다.</p>
+		<p id = "sortway"><input type = "button" id = "newprd" name = "new" value = "신상품">&nbsp;
+		<input type = "button" id = "prdname" name = "new" value = "상품명">&nbsp;
+		<input type = "button" id = "prdlow" name = "new" value = "낮은가격">&nbsp;
+		<input type = "button" id = "prdhigh" name = "new" value = "높은가격">&nbsp;
+		<input type = "button" id = "prdreview" name = "new" value = "사용후기"></p>
+	</div>
+	
+	<div id = "notfindprd">
+		<p><b>검색결과가 없습니다.</b><br>
+		<b>정확한 검색어인지 확인하시고 다시 검색해 주세요.</b><br>
+		<br>
+		검색어/제외검색어의 입력이 정확한지 확인해 보세요.<br>
+		두 단어 이상의 검색어인 경우, 띄어쓰기를 확인해 보세요.<br>
+		검색옵션을 다시 확인해 보세요.</p>
+	</div>
+
+	<div class = "items">
+		<table>
+			<tr>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+		
+		
+	
+	<div class = "items">
+		<table>
+			<tr>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<div class = "items">
+		<table>
+			<tr>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<div class = "items">
+		<table>
+			<tr>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+				
+				<td>
+					<div>
+						<li><a href = ""><img src = "../ascloimage/jang4.jpg" width = "100%" height = "350px"></a></li>
+						<li><a href = "">애즈클로 엘라스트라이프 셔츠 (3color)</a></li>
+						<li>KRW 39,000</li>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+
+	<div class = "listnum">
+    	<pre><<   <   1  2  3  4  5   >   >></pre>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<footer id = "foot">
+		<div class = "footdiv">
+			<ul>
+				<li>
+					<div class = "aboutus">
+						<ul>
+							<li>ABOUT US</li><br>
+							<li>company.애즈클로</li>
+							<li>tel.032-1234-5678 email.k-sunwo@naver.com</li>
+							<li>business no.204-29-34817</li>
+							<li>mail order license.2019-서울동대문-0071호[사업자정보확인]</li>
+							<li>address.[02586] 서울특별시 성동구 청계천로 468 3층</li>
+							<br>
+							<li><b>[교환/반품 주소지]</b></li>
+							<li>서울특별시 동대문구 난계로30길 23 (신설동) 7층</li>
+							<li>CJ대한통운 택배고객센터 : 1588-1255</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class = "cscenter">
+						<ul>
+							<li>C/S CENTER</li><br>
+							<li>070-1234-5678</li>
+							<li>MON - FRI : 10AM-4:30PM</li>
+							<li>LUNCH : 12:30AM-1:30PM</li>
+							<li>SAT SUN HOLIDAT OFF</li>
+							<br>
+							<li><b>[무통장 계좌 안내]</b></li>
+							<li>KB국민 123456-01-123456</li>
+							<li>예금주 : 김선우(선클로)</li>
+							<br>
+							<li><b>[반품 계좌 안내]</b></li>
+							<li>KB국민 123456-01-123456</li>
+							<li>예금주 : 김선우(선클로)</li>
+						</ul>
+					</div>
+				</li>
+		
+				<li>
+					<div class = "aside">
+						<div class = "m">
+							<ul>
+								<li>COMMUNITY</li>
+								<BR>
+								<li>NOTICE</li>
+								<li>FAQ</li>
+								<li>Q&A</li>
+								<li>REVIEW</li>
+								<li>MEMBERSHIP</li>
+							</ul>
+						</div>
+						<div class = "m">
+							<ul>
+								<li>MEMBERSHIP</li>
+								<BR>
+								<li>회원가입</li>
+								<li>아이디 찾기</li>
+								<li>비밀번호 찾기</li>
+								<li>주문조회 바로가기</li>
+								<li>최근 본 상품</li>
+							</ul>
+						</div>
+						<div class = "m">
+							<ul>
+								<li>SHOP GUIDE</li>
+								<BR>
+								<li>홈으로</li>
+								<li>회사소개</li>
+								<li>이용약관안내</li>
+								<li>개인정보취급방침</li>
+								<li>이용안내</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>
